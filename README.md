@@ -1,9 +1,30 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 <pre><code>npm install -g cra-template-typescript
 npm install -g create-react-app
 create-react-app project-name --template typescript</code></pre>
+
+<hr>
+
+### JSX Rules:
+
+1. All property names follow cameCase
+   - \<input **autoFocus** />
+2. Number attributes use curly braces
+   - \<input maxLength=**{5}** />
+   - \<input maxLength=**{50}** />
+3. Boolean 'true' can be written with just the property name. 'False' should be written with curly braces
+   - \<input **spellCheck** />
+   - \<input spellCheck=**{false}** />
+4. The 'class' attribute is written as 'className'
+   - \<div **className**="divider" />
+   - \<li **className**="divider" />
+5. In-lin styles are provided as objects
+   - \<div style=**{{color: "red"}}** />
+
+<hr>
 
 ## Available Scripts
 
