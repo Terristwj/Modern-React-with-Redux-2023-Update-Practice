@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-## **To clone and work on this project:**
+## **To clone and work on [this project](https://terristwj.github.io/Modern-React-with-Redux-2023-Update-Practice/):**
 
 - Clone project
 - npm install for node_modules
