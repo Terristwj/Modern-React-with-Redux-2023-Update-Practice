@@ -1,10 +1,6 @@
 import CSS from "csstype";
 import { useState } from "react";
-
-interface Profile {
-  title: string;
-  twitter: string;
-}
+import Profile from "../models/ProfileCard";
 
 function ProfileCard(props: Profile): JSX.Element {
   const [isHover, setIsHover] = useState(false);
