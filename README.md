@@ -59,6 +59,11 @@ create-react-app project-name --template typescript</code></pre>
      4. Click on the "Save" button
      5. View page at [https://\<git-name>.github.io/\<repo-name>/](https://terristwj.github.io/Modern-React-with-Redux-2023-Update-Practice/).
 
+- ### **To Redeploy GitHub pages:**
+  1.  Make src changes
+  2.  npm run deploy
+  3.  (Optional) Delete build folder
+
 <hr>
 
 ### **JSX Rules:**
