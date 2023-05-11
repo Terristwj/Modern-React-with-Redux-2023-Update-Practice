@@ -22,14 +22,30 @@ function ProfileCard(props: Profile): JSX.Element {
     background: isHover ? "rgb(227, 225, 225)" : "white",
   };
 
+  const imgStyle: CSS.Properties = {
+    width: "100%",
+    aspectRatio: "0.7",
+  };
+
+  const descStyle: CSS.Properties = {
+    paddingTop: "10px",
+    paddingBottom: "20px",
+  };
+
   return (
     <div
       style={cardStyle}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <h1>{props.title}</h1>
-      <h2>{props.twitter}</h2>
+      <img style={imgStyle} src={props.img} alt={props.tag} />
+      <div style={descStyle}>
+        <label style={{ fontSize: "2.5vw", fontWeight: "bold" }}>
+          {props.title}
+        </label>
+        <br />
+        <label style={{ fontSize: "2vw" }}>{props.tag}</label>
+      </div>
     </div>
   );
 }

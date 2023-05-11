@@ -1,6 +1,7 @@
 interface ProfileCard {
   title: string;
-  twitter: string;
+  tag: string;
+  img: string;
 }
 
 export default ProfileCard;
