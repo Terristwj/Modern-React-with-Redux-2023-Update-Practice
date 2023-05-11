@@ -25,39 +25,39 @@ create-react-app project-name --template typescript</code></pre>
 ## **Deploy & Redeploy onto GitHub pages:**
 
 - Have project working
-  > 1. Download gh-pages dependencies and update package.json
-  <pre><code>npm install gh-pages --save-dev</code></pre>
-  > 2. Manually update package.json
-  <pre><code>{
-    "name": "my-app",
-    "version": "0.1.0",
 
-* "homepage": "https://git-name.github.io/repository-name",
-"private": true,</code></pre>
-<pre><code>"scripts": {
-    "start": "react-scripts start",
-* "predeploy": "npm run build",
-* "deploy": "gh-pages -d build",
-  "build": "react-scripts build",</code></pre>
-  > 3. npm run deploy
+1. Download gh-pages dependencies and update package.json
+   <pre><code>npm install gh-pages --save-dev</code></pre>
+2. Manually update package.json
+   <pre><code>{
+      "name": "my-app",
+      "version": "0.1.0",
+    - "homepage": "https://git-name.github.io/repository-name",
+      "private": true,</code></pre>
+   <pre><code>"scripts": {
+      "start": "react-scripts start",
+    - "predeploy": "npm run build",
+    - "deploy": "gh-pages -d build",
+      "build": "react-scripts build",</code></pre>
+3. npm run deploy
+   <pre><code>npm run deploy</code></pre>
 
-- <pre><code>npm run deploy</code></pre>
-- That will cause the predeploy and deploy scripts defined in package.json to run.
+   That will cause the predeploy and deploy scripts defined in package.json to run.
 
-Under the hood, the predeploy script will build a distributable version of the React app and store it in a folder named build. Then, the deploy script will push the contents of that folder to a new commit on the gh-pages branch of the GitHub repository, creating that branch if it doesn't already exist.
+   > Under the hood, the predeploy script will build a distributable version of the React app and store it in a folder named build. Then, the deploy script will push the contents of that folder to a new commit on the gh-pages branch of the GitHub repository, creating that branch if it doesn't already exist.
 
-By default, the new commit on the gh-pages branch will have a commit message of "Updates". You can specify a custom commit message via the -m option, like this:
+   By default, the new commit on the gh-pages branch will have a commit message of "Updates". You can specify a custom commit message via the -m option, like this:
 
-<pre><code>$ npm run deploy -- -m "Deploy React app to GitHub Pages"</code></pre>
+   <pre><code>$ npm run deploy -- -m "Deploy React app to GitHub Pages"</code></pre>
 
-> 4. Configure GitHub Pages
+4. Configure GitHub Pages
 
-- GitHub Repo -> Settings -> Pages:
-   1. Source: Deploy from a branch
-   2. Branch: gh-pages
-   3. Folder: / (root)
-   4. Click on the "Save" button
-   5. View page at [https://\<git-name>.github.io/\<repo-name>/](https://terristwj.github.io/Modern-React-with-Redux-2023-Update-Practice/). 
+   - GitHub Repo -> Settings -> Pages:
+     1. Source: Deploy from a branch
+     2. Branch: gh-pages
+     3. Folder: / (root)
+     4. Click on the "Save" button
+     5. View page at [https://\<git-name>.github.io/\<repo-name>/](https://terristwj.github.io/Modern-React-with-Redux-2023-Update-Practice/).
 
 <hr>
 
