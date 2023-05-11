@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-<h3 color='red'>To clone and work on this project:</h3> 
+## **To clone and work on this project:**
 
 - Clone project
 - npm install for node_modules
