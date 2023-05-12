@@ -2,10 +2,6 @@ import ProfileCard from "./ProfileCard";
 import Profile from "../models/ProfileCard";
 
 function App(): JSX.Element {
-  const profileContainerStyle = {
-    display: "flex",
-  };
-
   // Pretent retrieve from database
   // ${process.env.PUBLIC_URL} - Gets root
   const imgPath = `${process.env.PUBLIC_URL}/assets/`;
@@ -24,7 +20,13 @@ function App(): JSX.Element {
     );
   });
 
-  return <div style={profileContainerStyle}>{profilesContainer}</div>;
+  return (
+    <div className="container">
+      <section className="section">
+        <div className="card columns">{profilesContainer}</div>
+      </section>
+    </div>
+  );
 }
 
 export default App;

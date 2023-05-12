@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+### **Dependencies**
+
+- npm install bulma
+
+<hr>
+
 ## **To clone and work on [this project](https://terristwj.github.io/Modern-React-with-Redux-2023-Update-Practice/):**
 
 - Clone project

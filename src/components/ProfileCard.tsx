@@ -1,4 +1,5 @@
 import CSS from "csstype";
+import "bulma/css/bulma.css";
 import { useState } from "react";
 import Profile from "../models/ProfileCard";
 
@@ -15,36 +16,35 @@ function ProfileCard(props: Profile): JSX.Element {
   const cardStyle: CSS.Properties = {
     textAlign: "center",
     flex: 1,
-    border: "1px solid black",
-    margin: "2em",
+    border: isHover ? "1px solid grey" : "1px solid black",
+    borderRadius: "3px",
+    margin: isHover ? "0.8em" : "1em",
     cursor: "default",
     transitionDuration: "0.5s",
     background: isHover ? "rgb(227, 225, 225)" : "white",
   };
 
-  const imgStyle: CSS.Properties = {
-    width: "100%",
-    aspectRatio: "0.7",
-  };
-
-  const descStyle: CSS.Properties = {
-    paddingTop: "10px",
-    paddingBottom: "20px",
-  };
-
   return (
-    <div
-      style={cardStyle}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <img style={imgStyle} src={props.img} alt={props.tag} />
-      <div style={descStyle}>
-        <label style={{ fontSize: "2.5vw", fontWeight: "bold" }}>
-          {props.title}
-        </label>
-        <br />
-        <label style={{ fontSize: "2vw" }}>{props.tag}</label>
+    <div className="column is-3">
+      <div
+        className="card"
+        style={cardStyle}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div
+          className="card-image"
+          style={{ borderBottom: "1.5px solid black" }}
+        >
+          <figure className="image is-3by4">
+            <img src={props.img} alt={props.tag} />
+          </figure>
+        </div>
+
+        <div className="card-content">
+          <p className="title is-4 has-text-weight-bold ">{props.title}</p>
+          <p className="subtitle is-6">{props.tag}</p>
+        </div>
       </div>
     </div>
   );
