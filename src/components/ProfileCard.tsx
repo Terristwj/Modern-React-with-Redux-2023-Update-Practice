@@ -1,16 +1,34 @@
-import Profile from "../models/ProfileCard";
+import Profile from "../models/Profile";
 import { useState } from "react";
 import CSS from "csstype";
 import "bulma/css/bulma.css";
 
-function ProfileCard(props: Profile): JSX.Element {
+function ProfileCard(_: {
+  Profile: Profile;
+  TotalLikes: [TotalLikes: number, setTotalLikes: Function];
+}): JSX.Element {
+  const profile = _.Profile;
   const [isHover, setIsHover] = useState(false);
+  const [TotalLikes, setTotalLikes] = _.TotalLikes;
+  const [Likes, setLikes] = useState(profile.getLikes);
 
-  function handleMouseEnter(): void {
-    setIsHover(true);
+  function alternateMouse(): void {
+    setIsHover(!isHover);
   }
-  function handleMouseLeave(): void {
-    setIsHover(false);
+
+  function addWaifu() {
+    new Promise((resolve, reject) => {
+      resolve(profile.addLike());
+    })
+      .then((_) => {
+        setLikes(profile.getLikes);
+      })
+      .catch((err) => {
+        console.log("Failed to Like:", err.message);
+      })
+      .then((_) => {
+        setTotalLikes(TotalLikes + 1);
+      });
   }
 
   const cardStyle: CSS.Properties = {
@@ -24,26 +42,30 @@ function ProfileCard(props: Profile): JSX.Element {
     background: isHover ? "rgb(227, 225, 225)" : "white",
   };
 
+  let { title, tag, img } = profile.getProfile;
+
   return (
-    <div className="column is-3">
-      <div
-        className="card"
-        style={cardStyle}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
+    <div
+      className="column is-3"
+      style={cardStyle}
+      onMouseEnter={alternateMouse}
+      onMouseLeave={alternateMouse}
+      onClick={addWaifu}
+    >
+      <div className="card" style={{ cursor: "pointer" }}>
         <div
           className="card-image"
           style={{ borderBottom: "1.5px solid black" }}
         >
           <figure className="image is-3by4">
-            <img src={props.img} alt={props.tag} />
+            <img src={img} alt={tag} />
           </figure>
         </div>
 
         <div className="card-content">
-          <p className="title is-4 has-text-weight-bold ">{props.title}</p>
-          <p className="subtitle is-6">{props.tag}</p>
+          <p className="title is-4 has-text-weight-bold ">{title}</p>
+          <p className="subtitle is-5">{tag}</p>
+          <p className="title is-6">Likes: {Likes}</p>
         </div>
       </div>
     </div>

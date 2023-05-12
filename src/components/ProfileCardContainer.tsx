@@ -1,23 +1,19 @@
 import ProfileCard from "./ProfileCard";
-import Profile from "../models/ProfileCard";
+import Profile from "../models/Profile";
 import "bulma/css/bulma.css";
 
-function ProfileCardContainer(): JSX.Element {
-  // Pretent retrieve from database
-  // ${process.env.PUBLIC_URL} - Gets root
-  const imgPath = `${process.env.PUBLIC_URL}/assets/`;
-  let profiles: Profile[] = [
-    { title: "2nd Healer", tag: "@bailu", img: imgPath + "bailu.jpg" },
-    { title: "Lady Boss", tag: "@bronya", img: imgPath + "bronya.jpg" },
-    { title: "Klee", tag: "@clara", img: imgPath + "clara.jpg" },
-    { title: "Must Pull", tag: "@seele", img: imgPath + "seele.jpg" },
-  ];
-
+function ProfileCardContainer(_: {
+  TotalLikes: [TotalLikes: number, setTotalLikes: Function];
+  Profiles: Profile[];
+}): JSX.Element {
   let profilesContainer: JSX.Element[] = [];
-  profiles.forEach((profile) => {
-    let { title, tag, img } = profile;
+  _.Profiles.forEach((profile) => {
     profilesContainer.push(
-      <ProfileCard key={tag} title={title} tag={tag} img={img} />
+      <ProfileCard
+        key={profile.getTag}
+        Profile={profile}
+        TotalLikes={_.TotalLikes}
+      />
     );
   });
 
