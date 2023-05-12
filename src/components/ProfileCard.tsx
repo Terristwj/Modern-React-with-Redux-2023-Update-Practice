@@ -1,7 +1,7 @@
+import Profile from "../models/ProfileCard";
+import { useState } from "react";
 import CSS from "csstype";
 import "bulma/css/bulma.css";
-import { useState } from "react";
-import Profile from "../models/ProfileCard";
 
 function ProfileCard(props: Profile): JSX.Element {
   const [isHover, setIsHover] = useState(false);

@@ -1,7 +1,8 @@
 import ProfileCard from "./ProfileCard";
 import Profile from "../models/ProfileCard";
+import "bulma/css/bulma.css";
 
-function App(): JSX.Element {
+function ProfileCardContainer(): JSX.Element {
   // Pretent retrieve from database
   // ${process.env.PUBLIC_URL} - Gets root
   const imgPath = `${process.env.PUBLIC_URL}/assets/`;
@@ -29,4 +30,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export default ProfileCardContainer;
