@@ -26,3 +26,15 @@ function App(): JSX.Element {
 }
 
 export default App;
+
+// Router Redirection
+// window.history.pushState({}, "", "/<path>");
+// Dont use
+// window.location = "<url>";
+
+// Rewriting Default Browser href Navigation
+// event.preventDefault();
+// Debugging Default Browser back/forward Navigation
+// window.addEventListener("popstate", () => console.log("Im at", window.location.pathname));
+
+
