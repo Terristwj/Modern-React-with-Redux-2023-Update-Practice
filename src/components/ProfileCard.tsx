@@ -38,15 +38,16 @@ function ProfileCard(_: {
     cursor: "default",
     transitionDuration: "0.5s",
     // background: isHover ? "rgb(227, 225, 225)" : "white",
-    boxShadow: isHover ? "5px 5px #23adff inset, 0px 0px 15px #23adff" : "none",
+    // boxShadow: isHover ? "5px 5px #23adff inset, 0px 0px 15px #23adff" : "none",
+    boxShadow: isHover ? "5px 5px #e6f6ff inset, 0px 0px 15px 10px #e6f6ff" : "none",
   };
   const card: CSS.Properties = {
-    border: isHover ? "1.5px solid #3e8ed0" : "1px solid black",
+    border: isHover ? "1.5px solid #4dbeff" : "1px solid black",
     borderRadius: "5px",
     cursor: "pointer",
   };
   const cardImage: CSS.Properties = {
-    borderBottom: isHover ? "3px solid #3e8ed0" : "1.5px solid black",
+    borderBottom: isHover ? "3px solid #99daff" : "1.5px solid black",
   };
   const likeText: CSS.Properties = {
     fontWeight: isHover ? "bold" : "normal",
