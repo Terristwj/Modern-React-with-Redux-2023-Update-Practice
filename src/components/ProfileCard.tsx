@@ -5,30 +5,27 @@ import "bulma/css/bulma.css";
 
 function ProfileCard(_: {
   Profile: Profile;
-  TotalLikes: [TotalLikes: number, setTotalLikes: Function];
+  TotalLikesState: [TotalLikes: number, setTotalLikes: Function];
 }): JSX.Element {
+  // Profile
   const profile = _.Profile;
-  const [isHover, setIsHover] = useState(false);
-  const [TotalLikes, setTotalLikes] = _.TotalLikes;
-  const [Likes, setLikes] = useState(profile.getLikes);
-
-  function alternateMouse(): void {
-    setIsHover(!isHover);
-  }
-
+  const [TotalLikes, setTotalLikes] = _.TotalLikesState;
   function addWaifu() {
-    new Promise((resolve, reject) => {
+    new Promise((resolve) => {
       resolve(profile.addLike());
     })
-      .then((_) => {
-        setLikes(profile.getLikes);
-      })
       .catch((err) => {
         console.log("Failed to Like:", err.message);
       })
       .then((_) => {
         setTotalLikes(TotalLikes + 1);
       });
+  }
+
+  // Hover
+  const [isHover, setIsHover] = useState(false);
+  function alternateMouse(): void {
+    setIsHover(!isHover);
   }
 
   const cardStyle: CSS.Properties = {
@@ -65,7 +62,7 @@ function ProfileCard(_: {
         <div className="card-content">
           <p className="title is-4 has-text-weight-bold ">{title}</p>
           <p className="subtitle is-5">{tag}</p>
-          <p className="title is-6">Likes: {Likes}</p>
+          <p className="title is-6">Likes: {profile.getLikes}</p>
         </div>
       </div>
     </div>

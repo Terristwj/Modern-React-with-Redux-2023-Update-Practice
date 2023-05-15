@@ -3,16 +3,16 @@ import Profile from "../models/Profile";
 import "bulma/css/bulma.css";
 
 function ProfileCardContainer(_: {
-  TotalLikes: [TotalLikes: number, setTotalLikes: Function];
+  TotalLikesState: [TotalLikes: number, setTotalLikes: Function];
   Profiles: Profile[];
 }): JSX.Element {
-  let profilesContainer: JSX.Element[] = [];
-  _.Profiles.forEach((profile) => {
-    profilesContainer.push(
+  // Creates card template foreach profile
+  const renderProfiles = _.Profiles.map((profile, index) => {
+    return (
       <ProfileCard
-        key={profile.getTag}
+        key={index}
         Profile={profile}
-        TotalLikes={_.TotalLikes}
+        TotalLikesState={_.TotalLikesState}
       />
     );
   });
@@ -20,7 +20,7 @@ function ProfileCardContainer(_: {
   return (
     <div className="container">
       <section className="section">
-        <div className="card columns">{profilesContainer}</div>
+        <div className="card columns">{renderProfiles}</div>
       </section>
     </div>
   );

@@ -49,6 +49,12 @@ class Profile {
     // Pretent retrieve from database
     // ${process.env.PUBLIC_URL} - Gets root
     const imgPath = `${process.env.PUBLIC_URL}/assets/`;
+    const profiles = this.makeProfiles(imgPath);
+    return profiles;
+  }
+
+  // Database
+  makeProfiles(imgPath: string) {
     let profiles: Profile[] = [
       new Profile({
         title: "2nd Healer",
@@ -75,7 +81,6 @@ class Profile {
         likes: getRndInteger(40, 70),
       }),
     ];
-
     return profiles;
   }
 }

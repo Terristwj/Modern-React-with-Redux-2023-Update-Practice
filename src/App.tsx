@@ -13,15 +13,14 @@ Profiles.forEach((profile) => {
 });
 
 function App(): JSX.Element {
-  const [TotalLikes, setTotalLikes] = useState(CurrentTotalLikes);
+  // No need for useState
+  // const ProfilesState = useState(Profiles);
+  const TotalLikesState = useState(CurrentTotalLikes);
 
   return (
     <div>
-      <Header TotalLikes={TotalLikes} />
-      <ProfileContainer
-        TotalLikes={[TotalLikes, setTotalLikes]}
-        Profiles={Profiles}
-      />
+      <Header TotalLikes={TotalLikesState[0]} />
+      <ProfileContainer TotalLikesState={TotalLikesState} Profiles={Profiles} />
     </div>
   );
 }
