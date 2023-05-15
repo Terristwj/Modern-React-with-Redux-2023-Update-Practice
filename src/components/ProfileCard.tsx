@@ -39,7 +39,9 @@ function ProfileCard(_: {
     transitionDuration: "0.5s",
     // background: isHover ? "rgb(227, 225, 225)" : "white",
     // boxShadow: isHover ? "5px 5px #23adff inset, 0px 0px 15px #23adff" : "none",
-    boxShadow: isHover ? "5px 5px #e6f6ff inset, 0px 0px 15px 10px #e6f6ff" : "none",
+    boxShadow: isHover
+      ? "5px 5px #e6f6ff inset, 0px 0px 15px 10px #e6f6ff"
+      : "none",
   };
   const card: CSS.Properties = {
     border: isHover ? "1.5px solid #4dbeff" : "1px solid black",
