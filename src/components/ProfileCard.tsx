@@ -9,8 +9,11 @@ function ProfileCard(_: {
 }): JSX.Element {
   // Profile
   const profile = _.Profile;
+  let { title, tag, img } = profile.getProfile;
+
+  // Total Likes
   const [TotalLikes, setTotalLikes] = _.TotalLikesState;
-  function addWaifu() {
+  function addLike() {
     new Promise((resolve) => {
       resolve(profile.addLike());
     })
@@ -28,42 +31,62 @@ function ProfileCard(_: {
     setIsHover(!isHover);
   }
 
-  const cardStyle: CSS.Properties = {
+  // CSS
+  const column: CSS.Properties = {
     textAlign: "center",
-    flex: 1,
-    border: isHover ? "1px solid grey" : "1px solid black",
-    borderRadius: "3px",
-    margin: isHover ? "0.8em" : "1em",
+    padding: isHover ? "0em 0em" : "",
     cursor: "default",
     transitionDuration: "0.5s",
-    background: isHover ? "rgb(227, 225, 225)" : "white",
+    // background: isHover ? "rgb(227, 225, 225)" : "white",
+    boxShadow: isHover ? "5px 5px #23adff inset, 0px 0px 15px #23adff" : "none",
+  };
+  const card: CSS.Properties = {
+    border: isHover ? "1.5px solid #3e8ed0" : "1px solid black",
+    borderRadius: "5px",
+    cursor: "pointer",
+  };
+  const cardImage: CSS.Properties = {
+    borderBottom: isHover ? "3px solid #3e8ed0" : "1.5px solid black",
+  };
+  const likeText: CSS.Properties = {
+    fontWeight: isHover ? "bold" : "normal",
   };
 
-  let { title, tag, img } = profile.getProfile;
-
+  // JSX
   return (
     <div
       className="column is-3"
-      style={cardStyle}
+      style={column}
       onMouseEnter={alternateMouse}
       onMouseLeave={alternateMouse}
-      onClick={addWaifu}
     >
-      <div className="card" style={{ cursor: "pointer" }}>
-        <div
-          className="card-image"
-          style={{ borderBottom: "1.5px solid black" }}
-        >
+      <div className="card" style={card} onClick={addLike}>
+        <div className="card-image" style={cardImage}>
           <figure className="image is-3by4">
             <img src={img} alt={tag} />
           </figure>
         </div>
 
-        <div className="card-content">
-          <p className="title is-4 has-text-weight-bold ">{title}</p>
-          <p className="subtitle is-5">{tag}</p>
-          <p className="title is-6">Likes: {profile.getLikes}</p>
-        </div>
+        <header className="card-header">
+          <span className="card-header-title is-size-5 is-centered">
+            {title}
+          </span>
+        </header>
+
+        <header className="card-header">
+          <span className="card-header-title is-size-6 is-centered has-text-weight-semibold">
+            {tag}
+          </span>
+        </header>
+
+        <header className="card-header">
+          <p
+            className="card-header-title is-size-6 is-centered"
+            style={likeText}
+          >
+            Likes: {profile.getLikes}
+          </p>
+        </header>
       </div>
     </div>
   );
