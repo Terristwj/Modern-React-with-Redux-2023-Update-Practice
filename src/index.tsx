@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
+import { NavigationProvider } from "./context/Navigation";
 import "./index.css";
 
 // Step 2) Get a reference to the div with ID root
@@ -15,7 +16,9 @@ const root = ReactDOM.createRoot(element);
 
 // Step 5) Show the component on the screen
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <NavigationProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </NavigationProvider>
 );

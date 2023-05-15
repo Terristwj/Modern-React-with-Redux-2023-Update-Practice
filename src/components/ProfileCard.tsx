@@ -7,7 +7,7 @@ function ProfileCard(_: {
   Profile: Profile;
   TotalLikesState: [TotalLikes: number, setTotalLikes: Function];
 }): JSX.Element {
-  // Profile 
+  // Profile
   const profile = _.Profile;
   let { title, tag, img } = profile.getProfile;
 

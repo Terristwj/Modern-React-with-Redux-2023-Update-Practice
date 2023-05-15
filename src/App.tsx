@@ -1,40 +1,39 @@
-import ProfileContainer from "./components/ProfileCardContainer";
-import Header from "./components/Header";
-import Profile from "./models/Profile";
-import { useState } from "react";
-
-// Cannot put inside when there is a useState
-// useState will force to rerun the function
-const Profiles = new Profile().getProfiles();
-
-let CurrentTotalLikes = 0;
-Profiles.forEach((profile) => {
-  CurrentTotalLikes += profile.getLikes;
-});
+import HonkaiStarRail from "./pages/HonkaiStarRail";
+import Route from "./components/Route";
 
 function App(): JSX.Element {
-  // No need for useState
-  // const ProfilesState = useState(Profiles);
-  const TotalLikesState = useState(CurrentTotalLikes);
-
   return (
     <div>
-      <Header TotalLikes={TotalLikesState[0]} />
-      <ProfileContainer TotalLikesState={TotalLikesState} Profiles={Profiles} />
+      <Route path="/honkai-star-rail">
+        <HonkaiStarRail />
+      </Route>
     </div>
   );
 }
 
 export default App;
 
-// Router Redirection
-// window.history.pushState({}, "", "/<path>");
-// Dont use
-// window.location = "<url>";
+// const currentPath = window.location.pathname;
+// let currentPage: JSX.Element;
 
-// Rewriting Default Browser href Navigation
-// event.preventDefault();
-// Debugging Default Browser back/forward Navigation
-// window.addEventListener("popstate", () => console.log("Im at", window.location.pathname));
+// const { navigate } = useContext(NavigationContext)!;
+// const navigationButtons: JSX.Element = (
+//   <div>
+//     <button onClick={() => navigate("/honkai-star-rail")}>Star Rail</button>
+//     <button onClick={() => navigate("/starrail")}>Star Rail</button>
+//     {currentPath[0]}
+//   </div>
+// );
 
-
+// // Redirects
+// if (currentPath === "/honkai-star-rail") {
+//   currentPage = <HonkaiStarRail />;
+// } else {
+//   currentPage = (
+//     <div>
+//       <Header />
+//       <Link to="/honkai-star-rail">Go to honkai-star-rail</Link>
+//       {navigationButtons}
+//     </div>
+//   );
+// }
