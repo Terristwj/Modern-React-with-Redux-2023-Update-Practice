@@ -3,7 +3,6 @@ import { useContext } from "react";
 import Header from "../components/Header";
 import NavigationContext from "../context/Navigation";
 import PathnameToPage from "../router/Pathnames";
-import path from "path";
 
 /**
  * Homepage()
