@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 import { NavigationProvider } from "./context/Navigation";
+import { StarRailProvider } from "./context/StarRailProfiles";
 import "./index.css";
 
 // Step 2) Get a reference to the div with ID root
@@ -17,8 +18,10 @@ const root = ReactDOM.createRoot(element);
 // Step 5) Show the component on the screen
 root.render(
   <NavigationProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <StarRailProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </StarRailProvider>
   </NavigationProvider>
 );

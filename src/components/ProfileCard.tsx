@@ -1,18 +1,18 @@
 import Profile from "../models/Profile";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import CSS from "csstype";
 import "bulma/css/bulma.css";
+import StarRailContext from "../context/StarRailProfiles";
 
-function ProfileCard(_: {
-  Profile: Profile;
-  TotalLikesState: [TotalLikes: number, setTotalLikes: Function];
-}): JSX.Element {
+function ProfileCard(_: { Profile: Profile }): JSX.Element {
+  const { TotalLikesState } = useContext(StarRailContext)!;
+
   // Profile
   const profile = _.Profile;
   let { title, tag, img } = profile.getProfile;
 
   // Total Likes
-  const [TotalLikes, setTotalLikes] = _.TotalLikesState;
+  const { TotalLikes, setTotalLikes } = TotalLikesState;
   function addLike() {
     new Promise((resolve) => {
       resolve(profile.addLike());

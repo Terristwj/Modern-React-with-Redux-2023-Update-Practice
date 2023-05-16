@@ -1,15 +1,22 @@
+import { useContext } from "react";
+import NavigationContext from "../context/Navigation";
 import "bulma/css/bulma.css";
+import { HonkaiStarRailPathname } from "../models/Pathnames";
+import StarRailContext from "../context/StarRailProfiles";
 
-function Header(_: { HonkaiStarRailLikes?: number }): JSX.Element {
+function Header(): JSX.Element {
   let headerContent: JSX.Element;
+  const { currentPath } = useContext(NavigationContext)!;
+
+  const StarRail = useContext(StarRailContext);
 
   // Honkai Star Rail
-  if (_.HonkaiStarRailLikes) {
+  if (currentPath === HonkaiStarRailPathname) {
     headerContent = (
       <div className="hero-body">
         <p className="title">Random Weeb Project</p>
         <p className="subtitle has-text-weight-bold">
-          Total Likes: {_.HonkaiStarRailLikes}
+          Total Likes: {StarRail!["TotalLikesState"]["TotalLikes"]}
         </p>
       </div>
     );

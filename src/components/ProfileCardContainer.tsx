@@ -1,21 +1,18 @@
 import ProfileCard from "./ProfileCard";
 import Profile from "../models/Profile";
 import "bulma/css/bulma.css";
+import StarRailContext from "../context/StarRailProfiles";
+import { useContext } from "react";
 
-function ProfileCardContainer(_: {
-  TotalLikesState: [TotalLikes: number, setTotalLikes: Function];
-  Profiles: Profile[];
-}): JSX.Element {
+function ProfileCardContainer(): JSX.Element {
+  const { StarRailProfiles } = useContext(StarRailContext)!;
+
   // Creates card template foreach profile
-  const renderProfiles = _.Profiles.map((profile, index) => {
-    return (
-      <ProfileCard
-        key={index}
-        Profile={profile}
-        TotalLikesState={_.TotalLikesState}
-      />
-    );
-  });
+  const renderProfiles = StarRailProfiles.map(
+    (profile: Profile, index: number) => {
+      return <ProfileCard key={index} Profile={profile} />;
+    }
+  );
 
   return (
     <div className="container">

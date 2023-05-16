@@ -1,10 +1,11 @@
 import HonkaiStarRail from "./pages/HonkaiStarRail";
 import Route from "./components/Route";
+import { HonkaiStarRailPathname } from "./models/Pathnames";
 
 function App(): JSX.Element {
   return (
     <div>
-      <Route path="/honkai-star-rail">
+      <Route path={HonkaiStarRailPathname}>
         <HonkaiStarRail />
       </Route>
     </div>
