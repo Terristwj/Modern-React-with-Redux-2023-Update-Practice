@@ -14,6 +14,7 @@ function ProfileCardContainer(): JSX.Element {
   /**
    * Foreach profile, create a card and display in a card-deck.
    * Each card-deck holds max 4 cards.
+   * Retrieves data from "models/Profile"
    */
   let renderCardDeck: JSX.Element[] = [];
   let profileCards: JSX.Element[] = [];

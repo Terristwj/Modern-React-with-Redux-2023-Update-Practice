@@ -3,7 +3,7 @@ import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
 import StarRailContext from "../context/StarRailProfiles";
 import { HonkaiStarRailPathname } from "../router/Pathnames";
-import PathnameToPage  from "../router/Pathnames";
+import PathnameToPage from "../router/Pathnames";
 
 /**
  * Header()
@@ -24,6 +24,7 @@ function Header(): JSX.Element {
 
   /**
    * Display corresponding Header
+   * Auto retrieves from "../router/Pathnames"
    */
   // Honkai Star Rail
   if (currentPath === HonkaiStarRailPathname) {

@@ -12,6 +12,10 @@ import PathnameToPage from "../router/Pathnames";
 function Homepage(): JSX.Element {
   const { currentPath, navigate } = useContext(NavigationContext)!;
 
+  /**
+   * Configures button appearance
+   * Auto retrieves from "../router/Pathnames"
+   */
   let buttons: JSX.Element[] = [];
   [...PathnameToPage.keys()].forEach((pathname: string, index: number) => {
     buttons.push(
