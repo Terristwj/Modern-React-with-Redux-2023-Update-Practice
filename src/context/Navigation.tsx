@@ -22,7 +22,6 @@ const NavigationContext = createContext<NavigationType | null>(null);
  */
 function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
-  const currentPathState = [currentPath, setCurrentPath];
   /**
    * "Back & Forth"
    * Listens for popstate event -> This component rerenders with children
