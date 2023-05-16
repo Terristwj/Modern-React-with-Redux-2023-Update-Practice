@@ -20,9 +20,10 @@ function Router(): JSX.Element {
 
   /**
    * Invalid pathname -> Redirects to homepage
+   * Specifically for GitHub Pages
    */
-  if (currentPath !== "Modern-React-with-Redux-2023-Update-Practice") {
-    navigate("Modern-React-with-Redux-2023-Update-Practice");
+  if (currentPath !== "/Modern-React-with-Redux-2023-Update-Practice/") {
+    navigate("/Modern-React-with-Redux-2023-Update-Practice/");
   }
 
   // Display homepage
