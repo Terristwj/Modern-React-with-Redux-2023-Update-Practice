@@ -1,7 +1,12 @@
-import ProfileContainer from "../components/ProfileCardContainer";
-import Header from "../components/Header";
 import "bulma/css/bulma.css";
+import Header from "../components/Header";
+import ProfileContainer from "../components/ProfileCardContainer";
 
+/**
+ * HonkaiStarRail()
+ * @summary - Contain and display HonkaiStarRail React components.
+ * @return {JSX.Element} - JSX element of HonkaiStarRail.
+ */
 function HonkaiStarRail(): JSX.Element {
   return (
     <div>

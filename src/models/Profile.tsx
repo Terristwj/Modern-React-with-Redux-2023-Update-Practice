@@ -1,5 +1,9 @@
 import { getRndInteger } from "../util/util";
 
+/**
+ * Interface of Profile
+ * @summary - Required to allow null likes
+ */
 interface iProfile {
   title: string;
   tag: string;
@@ -36,6 +40,9 @@ class Profile {
     this._likes += 1;
   }
 
+  /**
+   * @returns - items as an object
+   */
   get getProfile() {
     return {
       title: this._title,
@@ -45,6 +52,10 @@ class Profile {
     };
   }
 
+  /**
+   * Retreive profiles from 'Database'
+   * @returns - Array of Profiles
+   */
   getProfiles(): Profile[] {
     // Pretent retrieve from database
     // ${process.env.PUBLIC_URL} - Gets root
@@ -60,25 +71,25 @@ class Profile {
         title: "2nd Healer",
         tag: "@bailu",
         imageSrc: imgPath + "bailu.jpg",
-        likes: getRndInteger(25, 45),
+        likes: getRndInteger(500, 800),
       }),
       new Profile({
         title: "Lady Boss",
         tag: "@bronya",
         imageSrc: imgPath + "bronya.jpg",
-        likes: getRndInteger(30, 52),
+        likes: getRndInteger(700, 1000),
       }),
       new Profile({
         title: "Klee",
         tag: "@clara",
         imageSrc: imgPath + "clara.jpg",
-        likes: getRndInteger(25, 50),
+        likes: getRndInteger(600, 1000),
       }),
       new Profile({
         title: "Must Pull",
         tag: "@seele",
         imageSrc: imgPath + "seele.jpg",
-        likes: getRndInteger(40, 70),
+        likes: getRndInteger(700, 1200),
       }),
     ];
     return profiles;

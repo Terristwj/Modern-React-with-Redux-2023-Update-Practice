@@ -1,18 +1,32 @@
-import Header from "../components/Header";
-import Link from "../components/Link";
 import "bulma/css/bulma.css";
 import { useContext } from "react";
+import Header from "../components/Header";
 import NavigationContext from "../context/Navigation";
+import PathnameToPage from "../router/Pathnames";
+import path from "path";
 
+/**
+ * Homepage()
+ * @summary - Contain and display Homepage React components.
+ * @return {JSX.Element} - JSX element of Homepage.
+ */
 function Homepage(): JSX.Element {
   const { currentPath, navigate } = useContext(NavigationContext)!;
 
+  let buttons: JSX.Element[] = [];
+  [...PathnameToPage.keys()].forEach((pathname: string, index: number) => {
+    buttons.push(
+      <button key={index} onClick={() => navigate(pathname)}>
+        {PathnameToPage.get(pathname)!["webpage"]}
+      </button>
+    );
+  });
+
+  // Add button for each page here
   return (
     <div>
       <Header />
-      <Link to="/honkai-star-rail">Go to honkai-star-rail</Link>
-      <button onClick={() => navigate("/honkai-star-rail")}>Star Rail</button>
-      <button onClick={() => navigate("/starrail")}>Star Rail</button>
+      {buttons}
       {currentPath}
     </div>
   );

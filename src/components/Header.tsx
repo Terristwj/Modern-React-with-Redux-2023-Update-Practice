@@ -1,29 +1,46 @@
+import "bulma/css/bulma.css";
 import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
-import "bulma/css/bulma.css";
-import { HonkaiStarRailPathname } from "../models/Pathnames";
 import StarRailContext from "../context/StarRailProfiles";
+import { HonkaiStarRailPathname } from "../router/Pathnames";
+import PathnameToPage  from "../router/Pathnames";
 
+/**
+ * Header()
+ * @summary - Dynamic Header for every page.
+ * @return {JSX.Element} - JSX element of Header.
+ */
 function Header(): JSX.Element {
-  let headerContent: JSX.Element;
+  /**
+   *  Track current URL path
+   */
   const { currentPath } = useContext(NavigationContext)!;
 
+  /**
+   * Honkai Star Rail
+   */
+  let headerContent: JSX.Element;
   const StarRail = useContext(StarRailContext);
 
+  /**
+   * Display corresponding Header
+   */
   // Honkai Star Rail
   if (currentPath === HonkaiStarRailPathname) {
     headerContent = (
       <div className="hero-body">
-        <p className="title">Random Weeb Project</p>
+        <p className="title">{PathnameToPage.get(currentPath)!["webpage"]}</p>
         <p className="subtitle has-text-weight-bold">
           Total Likes: {StarRail!["TotalLikesState"]["TotalLikes"]}
         </p>
       </div>
     );
-  } else {
+  }
+  // Homepage
+  else {
     headerContent = (
       <div className="hero-body">
-        <p className="title">React Practice Project</p>
+        <p className="title">Terris' React Practice</p>
       </div>
     );
   }

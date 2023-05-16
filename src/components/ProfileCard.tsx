@@ -1,18 +1,32 @@
-import Profile from "../models/Profile";
-import { useState, useContext } from "react";
 import CSS from "csstype";
 import "bulma/css/bulma.css";
+import { useState, useContext } from "react";
 import StarRailContext from "../context/StarRailProfiles";
+import Profile from "../models/Profile";
 
-function ProfileCard(_: { Profile: Profile }): JSX.Element {
+/**
+ * ProfileCard()
+ * @summary - Contain and display profile card.
+ * @param - Honkai Star Rail Profile to make a card
+ * @return {JSX.Element} - JSX element of card template.
+ */
+function ProfileCard(props: { Profile: Profile }): JSX.Element {
   const { TotalLikesState } = useContext(StarRailContext)!;
 
-  // Profile
-  const profile = _.Profile;
-  let { title, tag, img } = profile.getProfile;
+  /**
+   * Profile properties
+   */
+  const profile = props.Profile;
+  const { title, tag, img } = profile.getProfile;
 
-  // Total Likes
+  /**
+   * Total Likes
+   */
   const { TotalLikes, setTotalLikes } = TotalLikesState;
+
+  /* addLike()
+   * @summary - Add like by 1 for both said profile and total likes.
+   */
   function addLike() {
     new Promise((resolve) => {
       resolve(profile.addLike());
@@ -25,13 +39,17 @@ function ProfileCard(_: { Profile: Profile }): JSX.Element {
       });
   }
 
-  // Hover
+  /**
+   * Hover
+   */
   const [isHover, setIsHover] = useState(false);
   function alternateMouse(): void {
     setIsHover(!isHover);
   }
 
-  // CSS
+  /**
+   * CSS Styles
+   */
   const column: CSS.Properties = {
     textAlign: "center",
     padding: isHover ? "0em 0em" : "",

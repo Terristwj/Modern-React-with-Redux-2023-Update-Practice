@@ -1,19 +1,23 @@
-import HonkaiStarRail from "./pages/HonkaiStarRail";
-import Route from "./components/Route";
-import { HonkaiStarRailPathname } from "./models/Pathnames";
+import Router from "./router/Router";
 
+/**
+ * App()
+ * @summary - Checks current path and displays corresponding content.
+ * @return {JSX.Element} - JSX element Router with content.
+ */
 function App(): JSX.Element {
   return (
     <div>
-      <Route path={HonkaiStarRailPathname}>
-        <HonkaiStarRail />
-      </Route>
+      <Router></Router>
     </div>
   );
 }
 
 export default App;
 
+/**
+ * Alternate approach without Route React component
+ */
 // const currentPath = window.location.pathname;
 // let currentPage: JSX.Element;
 

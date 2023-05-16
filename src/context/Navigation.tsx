@@ -1,23 +1,38 @@
 import { createContext, useState, useEffect } from "react";
 
+/**
+ * NavigationContext type properties
+ * @property {string} currentPath - Current URL path.
+ * @property {Function - Void} navigate - Redirects browser URL.
+ * @property {string} navigate.to - URL path to redirect.
+ */
 type NavigationType = {
   currentPath: string;
   navigate: (to: string) => void;
 };
 
+/** @global */
 const NavigationContext = createContext<NavigationType | null>(null);
 
-function NavigationProvider(_: { children: React.ReactNode }): JSX.Element {
+/**
+ * Settings for NavigationContext React component
+ * @summary - Replaces default "Back & Forth" and "Next Page" browser redirects to rerender App.
+ * @param {{React.ReactNode}} props.children - Sub React components.
+ * @return {JSX.Element} - JSX element with parsing values and children.
+ */
+function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  // Listens for popstate event
-  // Cause component to rerender
+  const currentPathState = [currentPath, setCurrentPath];
+  /**
+   * "Back & Forth"
+   * Listens for popstate event -> This component rerenders with children
+   */
   useEffect(() => {
     const handler = () => {
       setCurrentPath(window.location.pathname);
     };
 
-    // popstate -> Checks "Back & forth" button
+    // popstate -> Checks "Back & Forth" button in browser
     window.addEventListener("popstate", handler);
 
     return () => {
@@ -25,7 +40,12 @@ function NavigationProvider(_: { children: React.ReactNode }): JSX.Element {
     };
   });
 
+  /**
+   * "Next Page"
+   * Change the useState of currentPath
+   */
   function navigate(to: string): void {
+    // Adds to pushState stack
     window.history.pushState({}, "", to);
 
     // Triggers useEffect -> EventListener "popstate"
@@ -34,7 +54,7 @@ function NavigationProvider(_: { children: React.ReactNode }): JSX.Element {
 
   return (
     <NavigationContext.Provider value={{ currentPath, navigate }}>
-      {_.children}
+      {props.children}
     </NavigationContext.Provider>
   );
 }
