@@ -50,6 +50,11 @@ function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
 
     // Triggers useEffect -> EventListener "popstate"
     setCurrentPath(to);
+    /**
+     * Causes an error display (Still working)
+     * react-dom.development.js:86 Warning: Cannot update a component (`NavigationProvider`)
+     * while rendering a different component (`Router`). To locate the bad setState() call inside `Router`
+     */
   }
 
   return (
