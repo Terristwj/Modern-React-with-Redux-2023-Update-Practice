@@ -32,7 +32,8 @@ function Header(): JSX.Element {
     titleText = PathnameToPage.get(currentPath)!.webpage;
     subTitleText = `Total Likes: ${StarRail!.TotalLikesState.TotalLikes}`;
   }
-  if (PathnameToPage.get(currentPath)){
+  // Placeholder pages
+  else if (PathnameToPage.get(currentPath)){
     titleText = PathnameToPage.get(currentPath)!.webpage;
     subTitleText = currentPath;
   }
