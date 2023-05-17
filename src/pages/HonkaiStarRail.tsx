@@ -1,4 +1,3 @@
-import "bulma/css/bulma.css";
 import Header from "../components/Header";
 import ProfileContainer from "../components/ProfileCardContainer";
 

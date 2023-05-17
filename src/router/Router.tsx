@@ -2,6 +2,7 @@ import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
 import PathnameToPage from "./Pathnames";
 import Homepage from "../pages/Homepage";
+import { HompagePathname } from "../router/Pathnames";
 
 /**
  * Router()
@@ -15,15 +16,15 @@ function Router(): JSX.Element {
    * Valid pathname -> Displays corresponding page
    */
   if (PathnameToPage.has(currentPath)) {
-    return PathnameToPage.get(currentPath)!.page!;
+    return PathnameToPage.get(currentPath)!.page;
   }
 
   /**
    * Invalid pathname -> Redirects to homepage
    * Specifically for GitHub Pages
    */
-  if (currentPath !== "/Modern-React-with-Redux-2023-Update-Practice/") {
-    navigate("/Modern-React-with-Redux-2023-Update-Practice/");
+  if (currentPath !== HompagePathname) {
+    navigate(HompagePathname, false);
   }
 
   // Display homepage

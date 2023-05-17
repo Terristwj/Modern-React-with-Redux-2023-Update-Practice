@@ -1,4 +1,3 @@
-import "bulma/css/bulma.css";
 import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
 import StarRailContext from "../context/StarRailProfiles";
@@ -19,36 +18,38 @@ function Header(): JSX.Element {
   /**
    * Honkai Star Rail
    */
-  let headerContent: JSX.Element;
   const StarRail = useContext(StarRailContext);
 
   /**
    * Display corresponding Header
    * Auto retrieves from "../router/Pathnames"
    */
+  let titleText: string;
+  let subTitleText: string;
+
   // Honkai Star Rail
   if (currentPath === HonkaiStarRailPathname) {
-    headerContent = (
-      <div className="hero-body">
-        <p className="title">{PathnameToPage.get(currentPath)!.webpage}</p>
-        <p className="subtitle has-text-weight-bold">
-          Total Likes: {StarRail!.TotalLikesState.TotalLikes}
-        </p>
-      </div>
-    );
+    titleText = PathnameToPage.get(currentPath)!.webpage;
+    subTitleText = `Total Likes: ${StarRail!.TotalLikesState.TotalLikes}`;
+  }
+  if (PathnameToPage.get(currentPath)){
+    titleText = PathnameToPage.get(currentPath)!.webpage;
+    subTitleText = currentPath;
   }
   // Homepage
   else {
-    headerContent = (
-      <div className="hero-body">
-        <p className="title">Terris' React Practice</p>
-      </div>
-    );
+    titleText = "Terris' React Practice";
+    subTitleText = currentPath;
   }
 
   return (
     <div>
-      <section className="hero is-info">{headerContent}</section>
+      <section className="hero is-info">
+        <div className="hero-body">
+          <p className="title">{titleText}</p>
+          <p className="subtitle has-text-weight-bold">{subTitleText}</p>
+        </div>
+      </section>
     </div>
   );
 }

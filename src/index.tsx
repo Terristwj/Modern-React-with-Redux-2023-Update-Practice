@@ -8,6 +8,7 @@ import ReactDOM from "react-dom/client";
 // - Import App and CSS
 import App from "./App";
 import "./index.css";
+import "bulma/css/bulma.css";
 
 // - Import all Contexts
 import { NavigationProvider } from "./context/Navigation";

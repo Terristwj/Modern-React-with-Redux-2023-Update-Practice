@@ -1,5 +1,4 @@
 import CSS from "csstype";
-import "bulma/css/bulma.css";
 import { useState, useContext } from "react";
 import StarRailContext from "../context/StarRailProfiles";
 import Profile from "../models/Profile";

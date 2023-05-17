@@ -1,4 +1,3 @@
-import "bulma/css/bulma.css";
 import { useContext } from "react";
 import ProfileCard from "./ProfileCard";
 import StarRailContext from "../context/StarRailProfiles";

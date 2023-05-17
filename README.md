@@ -2,7 +2,11 @@
 
 ### **Dependencies**
 
-- npm install bulma
+1. Bulma.css
+   - npm install bulma
+2. Tailwind.css
+   - npm install -D tailwindcss
+   - npx tailwindcss init
 
 <hr>
 

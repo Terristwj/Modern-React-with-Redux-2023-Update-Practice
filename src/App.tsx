@@ -8,7 +8,7 @@ import Router from "./router/Router";
 function App(): JSX.Element {
   return (
     <div>
-      <Router></Router>
+      <Router />
     </div>
   );
 }

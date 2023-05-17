@@ -10,7 +10,7 @@ function Link(props: { to: string; children: React.ReactNode }) {
   function handleClick(event: React.FormEvent<HTMLAnchorElement>) {
     event.preventDefault();
 
-    navigate(props.to);
+    navigate(props.to, true);
   }
 
   return <a onClick={handleClick}>{props.children}</a>;

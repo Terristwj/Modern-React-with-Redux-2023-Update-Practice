@@ -5,10 +5,11 @@ import { createContext, useState, useEffect } from "react";
  * @property {string} currentPath - Current URL path.
  * @property {Function - Void} navigate - Redirects browser URL.
  * @property {string} navigate.to - URL path to redirect.
+ * @property {string} navigate.isValid - URL path is valid.
  */
 type NavigationType = {
   currentPath: string;
-  navigate: (to: string) => void;
+  navigate: (to: string, isValid: boolean) => void;
 };
 
 /** @global */
@@ -43,16 +44,20 @@ function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
    * "Next Page"
    * Change the useState of currentPath
    */
-  function navigate(to: string): void {
+  function navigate(to: string, isValid: boolean): void {
     // Adds to pushState stack
     window.history.pushState({}, "", to);
 
-    // Triggers useEffect -> EventListener "popstate"
-    setCurrentPath(to);
+    // If pathname is not valid, do not reset the current pathname
+    if (isValid) {
+      // Triggers useEffect -> EventListener "popstate"
+      setCurrentPath(to);
+    }
     /**
-     * Causes an error display (Still working)
+     * Valid checks solves the following error:
      * react-dom.development.js:86 Warning: Cannot update a component (`NavigationProvider`)
      * while rendering a different component (`Router`). To locate the bad setState() call inside `Router`
+     * Reason: Path does not exists
      */
   }
 
