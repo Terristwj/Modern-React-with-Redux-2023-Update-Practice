@@ -2,6 +2,7 @@ import "bulma/css/bulma.css";
 import { useContext } from "react";
 import ProfileCard from "./ProfileCard";
 import StarRailContext from "../context/StarRailProfiles";
+import Profile from "../models/Profile";
 
 /**
  * ProfileCardContainer()
@@ -9,7 +10,12 @@ import StarRailContext from "../context/StarRailProfiles";
  * @return {JSX.Element} - JSX element of card-decks.
  */
 function ProfileCardContainer(): JSX.Element {
-  const { StarRailProfiles } = useContext(StarRailContext)!;
+  const { StarRailProfiles, refreshProfiles } = useContext(StarRailContext)!;
+
+  // Refresh button
+  function handleRefreshProfiles() {
+    refreshProfiles(new Profile().getProfiles());
+  }
 
   /**
    * Foreach profile, create a card and display in a card-deck.
@@ -34,7 +40,17 @@ function ProfileCardContainer(): JSX.Element {
     }
   }
 
-  return <div>{renderCardDeck}</div>;
+  return (
+    <div>
+      <button
+        className="button is-info is-light  is-fullwidth "
+        onClick={handleRefreshProfiles}
+      >
+        Refresh
+      </button>
+      <div>{renderCardDeck}</div>
+    </div>
+  );
 }
 
 function createDeckTemplate(
@@ -42,11 +58,9 @@ function createDeckTemplate(
   ProfileCards: JSX.Element[]
 ): JSX.Element {
   return (
-    <div key={i} className="container">
-      <section className="section">
-        <div className="card columns">{ProfileCards}</div>
-      </section>
-    </div>
+    <section key={i} className="section">
+      <div className="card columns">{ProfileCards}</div>
+    </section>
   );
 }
 

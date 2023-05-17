@@ -30,9 +30,9 @@ function Header(): JSX.Element {
   if (currentPath === HonkaiStarRailPathname) {
     headerContent = (
       <div className="hero-body">
-        <p className="title">{PathnameToPage.get(currentPath)!["webpage"]}</p>
+        <p className="title">{PathnameToPage.get(currentPath)!.webpage}</p>
         <p className="subtitle has-text-weight-bold">
-          Total Likes: {StarRail!["TotalLikesState"]["TotalLikes"]}
+          Total Likes: {StarRail!.TotalLikesState.TotalLikes}
         </p>
       </div>
     );

@@ -20,7 +20,7 @@ function Homepage(): JSX.Element {
   [...PathnameToPage.keys()].forEach((pathname: string, index: number) => {
     buttons.push(
       <button key={index} onClick={() => navigate(pathname)}>
-        {PathnameToPage.get(pathname)!["webpage"]}
+        {PathnameToPage.get(pathname)!.webpage}
       </button>
     );
   });

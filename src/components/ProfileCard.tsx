@@ -11,6 +11,9 @@ import Profile from "../models/Profile";
  * @return {JSX.Element} - JSX element of card template.
  */
 function ProfileCard(props: { Profile: Profile }): JSX.Element {
+  /**
+   * Total Likes
+   */
   const { TotalLikesState } = useContext(StarRailContext)!;
 
   /**
@@ -18,11 +21,6 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
    */
   const profile = props.Profile;
   const { title, tag, img } = profile.getProfile;
-
-  /**
-   * Total Likes
-   */
-  const { TotalLikes, setTotalLikes } = TotalLikesState;
 
   /* addLike()
    * @summary - Add like by 1 for both said profile and total likes.
@@ -35,7 +33,7 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
         console.log("Failed to Like:", err.message);
       })
       .then((_) => {
-        setTotalLikes(TotalLikes + 1);
+        TotalLikesState.setTotalLikes(TotalLikesState.TotalLikes + 1);
       });
   }
 

@@ -15,7 +15,7 @@ function Router(): JSX.Element {
    * Valid pathname -> Displays corresponding page
    */
   if (PathnameToPage.has(currentPath)) {
-    return PathnameToPage.get(currentPath)!["page"]!;
+    return PathnameToPage.get(currentPath)!.page!;
   }
 
   /**
