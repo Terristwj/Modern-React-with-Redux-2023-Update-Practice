@@ -24,23 +24,17 @@ function Header(): JSX.Element {
    * Display corresponding Header
    * Auto retrieves from "../router/Pathnames"
    */
-  let titleText: string;
-  let subTitleText: string;
+  let titleText: string = PathnameToPage.get(currentPath)
+    ? PathnameToPage.get(currentPath)!.title
+    : "";
+  let subTitleText: string = currentPath;
 
+  /**
+   * Display any custom content for corresponding Header
+   */
   // Honkai Star Rail
   if (currentPath === HonkaiStarRailPathname) {
-    titleText = PathnameToPage.get(currentPath)!.webpage;
     subTitleText = `Total Likes: ${StarRail!.TotalLikesState.TotalLikes}`;
-  }
-  // Placeholder pages
-  else if (PathnameToPage.get(currentPath)){
-    titleText = PathnameToPage.get(currentPath)!.webpage;
-    subTitleText = currentPath;
-  }
-  // Homepage
-  else {
-    titleText = "Terris' React Practice";
-    subTitleText = currentPath;
   }
 
   return (
