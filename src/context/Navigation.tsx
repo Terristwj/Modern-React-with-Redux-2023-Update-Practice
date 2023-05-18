@@ -35,6 +35,7 @@ function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
     // popstate -> Checks "Back & Forth" button in browser
     window.addEventListener("popstate", handler);
 
+    // Return informs useEffect what to do when the component disappears.
     return () => {
       window.removeEventListener("popstate", handler);
     };
