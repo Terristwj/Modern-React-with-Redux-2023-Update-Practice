@@ -9,7 +9,7 @@ import Placeholder from "../pages/Placeholder";
  * Export all individual pathnames here
  */
 export const HonkaiStarRailPathname = "/honkai-star-rail";
-export const HompagePathname = "/Modern-React-with-Redux-2023-Update-Practice";
+export const HompagePathname = "/Modern-React-with-Redux-2023-Update-Practice/";
 export const Placeholder1 = "/Placeholder1";
 export const Placeholder2 = "/Placeholder2";
 export const Placeholder3 = "/Placeholder3";
