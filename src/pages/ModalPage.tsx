@@ -1,9 +1,9 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import WideButton from "../components/WideButton";
 import { default as ModalClass } from "../models/Modal";
-import { useState } from "react";
 
 /**
  * ModalPage()
