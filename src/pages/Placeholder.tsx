@@ -21,7 +21,7 @@ function Placeholder(): JSX.Element {
         JSXButton={
           <Button
             btnClassNames="w-3/4 my-5 mx-auto "
-            onClick={() => navigate(HompagePathname, true)}
+            onClick={() => navigate(HompagePathname)}
             btnTextClassNames="text-xl py-5 font-semibold "
             btnText="You are not suppose to be here!"
           />

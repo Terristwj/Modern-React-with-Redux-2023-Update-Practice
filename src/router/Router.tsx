@@ -10,7 +10,7 @@ import { HompagePathname } from "../router/Pathnames";
  * @return {JSX.Element} - JSX element of the correct page.
  */
 function Router(): JSX.Element {
-  const { currentPath, navigate } = useContext(NavigationContext)!;
+  const { currentPath } = useContext(NavigationContext)!;
 
   /**
    * Valid pathname -> Displays corresponding page
@@ -24,7 +24,7 @@ function Router(): JSX.Element {
    * Specifically for GitHub Pages
    */
   if (currentPath !== HompagePathname) {
-    navigate(HompagePathname, false);
+    window.history.pushState({}, "", HompagePathname);
   }
 
   // Display homepage

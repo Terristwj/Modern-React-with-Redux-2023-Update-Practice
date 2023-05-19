@@ -10,7 +10,7 @@ import ModalPage from "../pages/ModalPage";
  * Export all individual pathnames here
  */
 export const HonkaiStarRailPathname = "/Honkai-Star-Rail";
-export const HompagePathname = "/Modern-React-with-Redux-2023-Update-Practice";
+export const HompagePathname = "/Modern-React-with-Redux-2023-Update-Practice/";
 export const ModalPathname = "/Modal";
 export const Placeholder1 = "/Placeholder1";
 export const Placeholder2 = "/Placeholder2";

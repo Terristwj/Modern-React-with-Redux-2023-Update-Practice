@@ -2,7 +2,7 @@ import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
 import StarRailContext from "../context/StarRailProfiles";
 import { HonkaiStarRailPathname } from "../router/Pathnames";
-import PathnameToPage from "../router/Pathnames";
+import PathnameToPage, { HompagePathname } from "../router/Pathnames";
 
 /**
  * Header()
@@ -21,13 +21,18 @@ function Header(): JSX.Element {
   const StarRail = useContext(StarRailContext);
 
   /**
-   * Display corresponding Header
+   * Display corresponding Header and Subtitle
    * Auto retrieves from "../router/Pathnames"
+   * Display Default Homepage if invalid URL
    */
-  let titleText: string = PathnameToPage.get(currentPath)
-    ? PathnameToPage.get(currentPath)!.title
-    : "";
-  let subTitleText: string = currentPath;
+  let key: string;
+  if (PathnameToPage.get(currentPath)) {
+    key = currentPath;
+  } else {
+    key = HompagePathname;
+  }
+  const titleText: string = PathnameToPage.get(key)!.title;
+  let subTitleText: string = key;
 
   /**
    * Display any custom content for corresponding Header
