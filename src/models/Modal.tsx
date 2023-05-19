@@ -5,15 +5,18 @@
 interface iModal {
   title: string;
   text: string;
+  closeText: string;
 }
 
 class Modal {
   private _title: string;
   private _text: string;
+  private _closeText: string;
 
   constructor(obj?: iModal) {
     this._title = obj?.title ?? "";
     this._text = obj?.text ?? "";
+    this._closeText = obj?.closeText ?? "";
   }
 
   get getTitle() {
@@ -22,6 +25,10 @@ class Modal {
 
   get getText() {
     return this._text;
+  }
+
+  get getCloseText() {
+    return this._closeText;
   }
 
   /**
@@ -35,13 +42,26 @@ class Modal {
   // Database
   makeModals(): Modal[] {
     return [
-      new Modal({ title: "Open Modal", text: "Idk how I did this" }),
-      new Modal({ title: "What is this?", text: "A random modal" }),
+      new Modal({
+        title: "Open Modal",
+        text: "Idk how I did this",
+        closeText: "Okay.",
+      }),
+      new Modal({
+        title: "What is this?",
+        text: "A random modal",
+        closeText: "Such wow",
+      }),
       new Modal({
         title: "Why...",
         text: "Why did I decide to learn an entire 38hr course on React w/ Typescript within 1 week ...",
+        closeText: "Accept",
       }),
-      new Modal({ title: "Best game", text: "Zelda: Tears of the Kingdom" }),
+      new Modal({
+        title: "Best game",
+        text: "Zelda: Tears of the Kingdom",
+        closeText: "I agree",
+      }),
     ];
   }
 }

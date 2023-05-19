@@ -12,7 +12,7 @@ import { default as ModalClass } from "../models/Modal";
  */
 function ModalPage(): JSX.Element {
   const [showModal, setShowModal] = useState(false);
-  const [modalText, setModalText] = useState("");
+  const [ModalInstance, setModal] = useState(new ModalClass());
 
   const Modals = new ModalClass().getModals();
 
@@ -29,7 +29,7 @@ function ModalPage(): JSX.Element {
           <Button
             btnClassNames="w-3/4 my-5 mx-auto "
             onClick={() => {
-              setModalText(Modals[i].getText);
+              setModal(Modals[i]);
               setShowModal(true);
             }}
             btnTextClassNames="text-xl py-5 font-semibold "
@@ -44,7 +44,7 @@ function ModalPage(): JSX.Element {
     <div>
       <Header />
       {renderModals}
-      {showModal && <Modal text={modalText} setShowModal={setShowModal} />}
+      {showModal && <Modal Modal={ModalInstance} setShowModal={setShowModal} />}
     </div>
   );
 }

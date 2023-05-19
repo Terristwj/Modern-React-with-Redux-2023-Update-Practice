@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import Button from "../components/Button";
 import WideButton from "./WideButton";
+import { default as ModalClass } from "../models/Modal";
 
 /**
  * Modal()
@@ -8,9 +9,10 @@ import WideButton from "./WideButton";
  * @return {JSX.Element} - JSX element of Modal.
  */
 function Modal(props: {
-  text: string;
+  Modal: ModalClass;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }): JSX.Element {
+  const Modal = props.Modal;
   function setShowModal(): void {
     props.setShowModal(false);
   }
@@ -24,7 +26,7 @@ function Modal(props: {
       ></div>
       <div className="fixed inset-y-1/4 inset-x-3.5 p-10 bg-white ">
         <div className="h-3/4 overflow-y-scroll">
-          <p className="text-justify text-4xl">{props.text}</p>
+          <p className="text-justify text-4xl">{Modal.getText}</p>
         </div>
 
         <WideButton
@@ -34,7 +36,7 @@ function Modal(props: {
               btnClassNames="mx-auto "
               onClick={setShowModal}
               btnTextClassNames="text-xl py-2 px-4 font-semibold "
-              btnText="Close"
+              btnText={Modal.getCloseText}
             />
           }
         />
