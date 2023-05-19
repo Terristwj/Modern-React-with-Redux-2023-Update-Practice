@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Header from "../components/Header";
 import NavigationContext from "../context/Navigation";
 import { HompagePathname } from "../router/Pathnames";
+import { ButtonTailwindCSS, ButtonSpanTailwindCSS } from "../util/util";
 
 /**
  * Placeholder()
@@ -16,10 +17,12 @@ function Placeholder(): JSX.Element {
       <Header />
       <div className="text-center w-full mx-auto">
         <button
-          className="p-5 w-3/4 my-10 mx-auto border-8 border-blue-200"
+          className={"w-3/4 my-10 mx-auto " + ButtonTailwindCSS}
           onClick={() => navigate(HompagePathname, true)}
         >
-          <p className="text-xl">You are not suppose to be here!</p>
+          <p className={"text-xl py-5 font-semibold " + ButtonSpanTailwindCSS}>
+            You are not suppose to be here!
+          </p>
         </button>
       </div>
     </div>

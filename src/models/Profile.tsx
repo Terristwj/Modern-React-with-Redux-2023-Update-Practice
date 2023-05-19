@@ -91,6 +91,12 @@ class Profile {
         imageSrc: imgPath + "seele.jpg",
         likes: getRndInteger(700, 1200),
       }),
+      new Profile({
+        title: "Always Depressed",
+        tag: "@pompom",
+        imageSrc: imgPath + "pompom.jpg",
+        likes: getRndInteger(300, 500),
+      }),
     ];
     return profiles;
   }

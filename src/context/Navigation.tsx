@@ -22,7 +22,15 @@ const NavigationContext = createContext<NavigationType | null>(null);
  * @return {JSX.Element} - JSX element with parsing values and children.
  */
 function NavigationProvider(props: { children: React.ReactNode }): JSX.Element {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentPath, setCurrentPath] = useState(() => {
+    // GitHub Pages URL startup with '/'
+    let currentPath: string = window.location.pathname;
+    currentPath =
+      currentPath.substring(currentPath.length - 1) === "/"
+        ? currentPath.substring(0, currentPath.length - 1)
+        : currentPath;
+    return currentPath;
+  });
   /**
    * "Back & Forth"
    * Listens for popstate event -> This component rerenders with children
