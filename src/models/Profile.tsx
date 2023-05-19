@@ -65,7 +65,7 @@ class Profile {
   }
 
   // Database
-  makeProfiles(imgPath: string) {
+  makeProfiles(imgPath: string): Profile[] {
     let profiles: Profile[] = [
       new Profile({
         title: "2nd Healer",
