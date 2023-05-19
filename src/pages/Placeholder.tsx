@@ -1,12 +1,13 @@
 import { useContext } from "react";
+import Button from "../components/Button";
 import Header from "../components/Header";
+import WideButton from "../components/WideButton";
 import NavigationContext from "../context/Navigation";
 import { HompagePathname } from "../router/Pathnames";
-import { ButtonTailwindCSS, ButtonSpanTailwindCSS } from "../util/util";
 
 /**
  * Placeholder()
- * @summary - Placeholder content
+ * @summary - Placeholder content.
  * @return {JSX.Element} - JSX element of Placeholder.
  */
 function Placeholder(): JSX.Element {
@@ -15,16 +16,17 @@ function Placeholder(): JSX.Element {
   return (
     <div>
       <Header />
-      <div className="text-center w-full mx-auto">
-        <button
-          className={"w-3/4 my-10 mx-auto " + ButtonTailwindCSS}
-          onClick={() => navigate(HompagePathname, true)}
-        >
-          <p className={"text-xl py-5 font-semibold " + ButtonSpanTailwindCSS}>
-            You are not suppose to be here!
-          </p>
-        </button>
-      </div>
+      <WideButton
+        wideBtnClassNames="text-center w-full mx-auto"
+        JSXButton={
+          <Button
+            btnClassNames="w-3/4 my-5 mx-auto "
+            onClick={() => navigate(HompagePathname, true)}
+            btnTextClassNames="text-xl py-5 font-semibold "
+            btnText="You are not suppose to be here!"
+          />
+        }
+      />
     </div>
   );
 }
