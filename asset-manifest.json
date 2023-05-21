@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Modern-React-with-Redux-2023-Update-Practice/static/css/main.7ad6f2ef.css",
-    "main.js": "/Modern-React-with-Redux-2023-Update-Practice/static/js/main.ffd21fb3.js",
+    "main.css": "/Modern-React-with-Redux-2023-Update-Practice/static/css/main.4c033a92.css",
+    "main.js": "/Modern-React-with-Redux-2023-Update-Practice/static/js/main.0363da2b.js",
     "index.html": "/Modern-React-with-Redux-2023-Update-Practice/index.html",
-    "main.7ad6f2ef.css.map": "/Modern-React-with-Redux-2023-Update-Practice/static/css/main.7ad6f2ef.css.map",
-    "main.ffd21fb3.js.map": "/Modern-React-with-Redux-2023-Update-Practice/static/js/main.ffd21fb3.js.map"
+    "main.4c033a92.css.map": "/Modern-React-with-Redux-2023-Update-Practice/static/css/main.4c033a92.css.map",
+    "main.0363da2b.js.map": "/Modern-React-with-Redux-2023-Update-Practice/static/js/main.0363da2b.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ad6f2ef.css",
-    "static/js/main.ffd21fb3.js"
+    "static/css/main.4c033a92.css",
+    "static/js/main.0363da2b.js"
   ]
 }
