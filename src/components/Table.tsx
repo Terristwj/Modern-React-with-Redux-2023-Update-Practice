@@ -48,7 +48,7 @@ function Table(props: { name: string }): JSX.Element {
           <td className={tdClassNames}>{Tag}</td>
           <td className={tdClassNames}>
             <img
-              className="p-2 h-28 w-20 m-auto duration-300 cursor-pointer hover:h-52 hover:w-40"
+              className="p-[0.1em] w-6/12 min-w-[2.5em] max-w-[20em] m-auto duration-300 cursor-pointer hover:w-8/12"
               onClick={() => addLike(Profile, TotalLikesState)}
               src={Img}
               alt={Alt}
@@ -83,7 +83,7 @@ function getClassNames(): {
   return {
     thClassNames: "first-letter:capitalize pb-2",
     trClassNames: "duration-100 hover:font-bold hover:bg-slate-100",
-    tdClassNames: "align-middle px-5",
+    tdClassNames: "align-middle px-[0.5em]",
   };
 }
 
