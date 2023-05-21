@@ -54,7 +54,7 @@ class Modal {
       }),
       new Modal({
         title: "Why...",
-        text: "Why did I decide to learn an entire 38hr course on React w/ Typescript within 1 week ...",
+        text: "Is the Earth a turtle?",
         closeText: "Accept",
       }),
       new Modal({
