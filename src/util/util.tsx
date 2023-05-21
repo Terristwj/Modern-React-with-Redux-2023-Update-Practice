@@ -1,28 +1,5 @@
-import Profile from "../models/Profile";
-
 export function getRndInteger(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min)) + min;
-}
-
-/* addLike()
- * @summary - Add like by 1 for both said profile and total likes.
- */
-export function addLike(
-  Profile: Profile,
-  TotalLikesState: {
-    TotalLikes: number;
-    setTotalLikes: Function;
-  }
-) {
-  new Promise((resolve) => {
-    resolve(Profile.addLike());
-  })
-    .catch((err) => {
-      console.log("Failed to Like:", err.message);
-    })
-    .then((_) => {
-      TotalLikesState.setTotalLikes(TotalLikesState.TotalLikes + 1);
-    });
 }
 
 export const ButtonTailwindCSS: string =

@@ -2,7 +2,6 @@ import CSS from "csstype";
 import { useState, useContext } from "react";
 import StarRailContext from "../context/StarRailProfiles";
 import Profile from "../models/Profile";
-import { addLike } from "../util/util";
 
 /**
  * ProfileCard()
@@ -19,7 +18,7 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
   /**
    * Profile properties
    */
-  const Profile = props.Profile;
+  const Profile: Profile = props.Profile;
   const { Title, Tag, Img } = Profile.getProfile;
 
   /**
@@ -67,7 +66,7 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
       <div
         className="card"
         style={card}
-        onClick={() => addLike(Profile, TotalLikesState)}
+        onClick={() => Profile.addLike(TotalLikesState)}
       >
         <div className="card-image" style={cardImage}>
           <figure className="image is-3by4">

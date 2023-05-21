@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import StarRailContext from "../context/StarRailProfiles";
-import { addLike } from "../util/util";
+import Profile from "../models/Profile";
 
 /**
  * Table()
@@ -27,7 +27,7 @@ function Table(props: { name: string }): JSX.Element {
     /**
      * Render table headers
      */
-    Object.keys(StarRailProfiles[0].getProfile).forEach((key) => {
+    Object.keys(StarRailProfiles[0].getProfile).forEach((key: string) => {
       renderTableHeaders.push(
         <th key={key} className={thClassNames}>
           {key}
@@ -38,7 +38,7 @@ function Table(props: { name: string }): JSX.Element {
     /**
      * Render table data rows
      */
-    StarRailProfiles.forEach((Profile) => {
+    StarRailProfiles.forEach((Profile: Profile) => {
       const { Title, Tag, Img, Likes } = Profile.getProfile;
       const Alt = Img.split("/").at(-1)!;
 
@@ -49,7 +49,7 @@ function Table(props: { name: string }): JSX.Element {
           <td className={tdClassNames}>
             <img
               className="p-[0.1em] w-6/12 min-w-[2.5em] max-w-[20em] m-auto duration-300 cursor-pointer hover:w-8/12"
-              onClick={() => addLike(Profile, TotalLikesState)}
+              onClick={() => Profile.addLike(TotalLikesState)}
               src={Img}
               alt={Alt}
             />

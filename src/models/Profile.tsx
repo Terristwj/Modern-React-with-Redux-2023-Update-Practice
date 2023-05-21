@@ -36,8 +36,20 @@ class Profile {
   get getLikes() {
     return this._likes;
   }
-  addLike() {
-    this._likes += 1;
+
+  /* addLike()
+   * @summary - Add like by 1 for both said profile and total likes.
+   */
+  addLike(TotalLikesState: { TotalLikes: number; setTotalLikes: Function }) {
+    new Promise((resolve) => {
+      resolve((this._likes += 1));
+    })
+      .catch((err) => {
+        console.log("Failed to Like:", err.message);
+      })
+      .then((_) => {
+        TotalLikesState.setTotalLikes(TotalLikesState.TotalLikes + 1);
+      });
   }
 
   /**
