@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import ProfileCard from "./ProfileCard";
 import StarRailContext from "../context/StarRailProfiles";
-import Profile from "../models/Profile";
 
 /**
  * ProfileCardContainer()
@@ -9,12 +8,7 @@ import Profile from "../models/Profile";
  * @return {JSX.Element} - JSX element of card-decks.
  */
 function ProfileCardContainer(): JSX.Element {
-  const { StarRailProfiles, refreshProfiles } = useContext(StarRailContext)!;
-
-  // Refresh button
-  function handleRefreshProfiles() {
-    refreshProfiles(new Profile().getProfiles());
-  }
+  const { StarRailProfiles } = useContext(StarRailContext)!;
 
   /**
    * Foreach profile, create a card and display in a card-deck.
@@ -39,17 +33,7 @@ function ProfileCardContainer(): JSX.Element {
     }
   }
 
-  return (
-    <div>
-      <button
-        className="button is-info is-light  is-fullwidth "
-        onClick={handleRefreshProfiles}
-      >
-        Refresh
-      </button>
-      <div>{renderCardDeck}</div>
-    </div>
-  );
+  return <div>{renderCardDeck}</div>;
 }
 
 function createDeckTemplate(

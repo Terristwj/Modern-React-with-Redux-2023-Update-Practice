@@ -1,8 +1,11 @@
 import { useContext } from "react";
 import NavigationContext from "../context/Navigation";
 import StarRailContext from "../context/StarRailProfiles";
-import { HonkaiStarRailPathname } from "../router/Pathnames";
-import PathnameToPage, { HompagePathname } from "../router/Pathnames";
+import PathnameToPage, {
+  HompagePathname,
+  HonkaiStarRailPathname,
+  TablePathname,
+} from "../router/Pathnames";
 
 /**
  * Header()
@@ -38,7 +41,9 @@ function Header(): JSX.Element {
    * Display any custom content for corresponding Header
    */
   // Honkai Star Rail
-  if (currentPath === HonkaiStarRailPathname) {
+  // Table
+  const usesTotalLikes = [HonkaiStarRailPathname, TablePathname];
+  if (usesTotalLikes.includes(currentPath)) {
     subTitleText = `Total Likes: ${StarRail!.TotalLikesState.TotalLikes}`;
   }
 

@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import ProfileContainer from "../components/ProfileCardContainer";
+import RefreshProfiles from "../components/RefreshProfiles";
 
 /**
  * HonkaiStarRail()
@@ -10,6 +11,7 @@ function HonkaiStarRail(): JSX.Element {
   return (
     <div>
       <Header />
+      <RefreshProfiles />
       <ProfileContainer />
     </div>
   );

@@ -2,6 +2,7 @@ import CSS from "csstype";
 import { useState, useContext } from "react";
 import StarRailContext from "../context/StarRailProfiles";
 import Profile from "../models/Profile";
+import { addLike } from "../util/util";
 
 /**
  * ProfileCard()
@@ -18,23 +19,8 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
   /**
    * Profile properties
    */
-  const profile = props.Profile;
-  const { title, tag, img } = profile.getProfile;
-
-  /* addLike()
-   * @summary - Add like by 1 for both said profile and total likes.
-   */
-  function addLike() {
-    new Promise((resolve) => {
-      resolve(profile.addLike());
-    })
-      .catch((err) => {
-        console.log("Failed to Like:", err.message);
-      })
-      .then((_) => {
-        TotalLikesState.setTotalLikes(TotalLikesState.TotalLikes + 1);
-      });
-  }
+  const Profile = props.Profile;
+  const { Title, Tag, Img } = Profile.getProfile;
 
   /**
    * Hover
@@ -78,22 +64,26 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
       onMouseEnter={alternateMouse}
       onMouseLeave={alternateMouse}
     >
-      <div className="card" style={card} onClick={addLike}>
+      <div
+        className="card"
+        style={card}
+        onClick={() => addLike(Profile, TotalLikesState)}
+      >
         <div className="card-image" style={cardImage}>
           <figure className="image is-3by4">
-            <img src={img} alt={tag} />
+            <img src={Img} alt={Tag} />
           </figure>
         </div>
 
         <header className="card-header">
           <span className="card-header-title is-size-5 is-centered">
-            {title}
+            {Title}
           </span>
         </header>
 
         <header className="card-header">
           <span className="card-header-title is-size-6 is-centered has-text-weight-semibold">
-            {tag}
+            {Tag}
           </span>
         </header>
 
@@ -102,7 +92,7 @@ function ProfileCard(props: { Profile: Profile }): JSX.Element {
             className="card-header-title is-size-6 is-centered"
             style={likeText}
           >
-            Likes: {profile.getLikes}
+            Likes: {Profile.getLikes}
           </p>
         </header>
       </div>

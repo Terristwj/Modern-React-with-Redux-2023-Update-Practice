@@ -45,10 +45,10 @@ class Profile {
    */
   get getProfile() {
     return {
-      title: this._title,
-      tag: this._tag,
-      img: this._imageSrc,
-      likes: this._likes,
+      Title: this._title,
+      Tag: this._tag,
+      Img: this._imageSrc,
+      Likes: this._likes,
     };
   }
 
