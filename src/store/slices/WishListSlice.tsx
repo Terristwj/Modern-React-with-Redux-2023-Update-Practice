@@ -1,5 +1,11 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
+/**
+ * iWish
+ * @property {string} id - Randomly generated.
+ * @property {string} name - Not unique.
+ * @property {number} cost
+ */
 export interface iWish {
   id: string;
   name: string;
@@ -7,6 +13,12 @@ export interface iWish {
 }
 let initialWishList: iWish[] = [];
 
+/**
+ * wishListSlice
+ * @summary - Stores user's wishlist and search result
+ * @property {string} searchTerm - To check against each wish.
+ * @property {iWish[]} wishesArray
+ */
 const wishListSlice = createSlice({
   name: "wishList",
   initialState: {
@@ -15,6 +27,7 @@ const wishListSlice = createSlice({
   },
   reducers: {
     changeSearchTerm(state, action) {
+      // action.payload === {searchTerm: string}
       state.searchTerm = action.payload;
     },
     addWish(state, action) {
@@ -27,6 +40,7 @@ const wishListSlice = createSlice({
     },
     removeWish(state, action) {
       // action.payload === {id:string}
+      // Returns filtered wishlist
       state.wishesArray = state.wishesArray.filter((wish) => {
         return wish.id !== action.payload;
       });

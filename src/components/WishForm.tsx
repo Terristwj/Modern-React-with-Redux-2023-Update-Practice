@@ -2,7 +2,15 @@ import { ChangeEvent, FormEvent } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { changeName, changeCost, addWish } from "../store/index";
 
+/**
+ * WishForm()
+ * @summary - Handles user's interaction with field inputs.
+ * @return {JSX.Element} - Form to add wish.
+ */
 function WishForm(): JSX.Element {
+  /**
+   * Retrieve data from Redux Store
+   */
   const dispatch = useDispatch();
   const { name, cost }: { name: string; cost: number } = useSelector(
     (state: any) => {
@@ -13,6 +21,9 @@ function WishForm(): JSX.Element {
     }
   );
 
+  /**
+   * Constant checks for field inputs
+   */
   function handleNameChange(event: ChangeEvent<HTMLInputElement>): void {
     dispatch(changeName(event.target.value));
   }
@@ -20,6 +31,10 @@ function WishForm(): JSX.Element {
     const wishCost = parseInt(event.target.value) || 0;
     dispatch(changeCost(wishCost));
   }
+
+  /**
+   * Update new wishlist into Redux Store
+   */
   function handleSubmit(event: FormEvent): void {
     event.preventDefault();
     dispatch(addWish({ name: name, cost: cost }));
@@ -27,7 +42,7 @@ function WishForm(): JSX.Element {
 
   return (
     <div className="wish-form panel">
-      <h4 className="subtitle is-3">Add Wish</h4>
+      <h4 className="subtitle is-3">Add a Wish</h4>
 
       <form onSubmit={handleSubmit}>
         <div className="field-group">

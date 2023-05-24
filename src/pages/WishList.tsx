@@ -4,14 +4,19 @@ import Wishes from "../components/WishList";
 import WishSearch from "../components/WishSearch";
 import WishValue from "../components/WishValue";
 
+/**
+ * WishList()
+ * @summary - WishList content.
+ * @return {JSX.Element} - JSX element of WishList.
+ */
 function WishList(): JSX.Element {
   return (
     <div>
       <Header />
-      <div>
+      <div className="container is-fluid">
         <WishForm />
-        <Wishes />
         <WishSearch />
+        <Wishes />
         <WishValue />
       </div>
     </div>
