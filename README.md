@@ -2,9 +2,13 @@
 
 ### **Dependencies**
 
-1. Bulma.css
+1. React Library
+   - npm install react-redux
+2. Redux Toolkit
+   - npm install @reduxjs/toolkit
+3. Bulma.css
    - npm install bulma
-2. Tailwind.css
+4. Tailwind.css
    - npm install -D tailwindcss
    - npx tailwindcss init
 

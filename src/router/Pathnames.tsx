@@ -6,6 +6,7 @@ import HonkaiStarRail from "../pages/HonkaiStarRail";
 import Placeholder from "../pages/Placeholder";
 import ModalPage from "../pages/ModalPage";
 import TablePage from "../pages/TablePage";
+import HotWheels from "../pages/HotWheels";
 
 /**
  * Export all individual pathnames here
@@ -14,6 +15,7 @@ export const HonkaiStarRailPathname = "/Honkai-Star-Rail";
 export const HompagePathname = "/Modern-React-with-Redux-2023-Update-Practice/";
 export const ModalPathname = "/Modal";
 export const TablePathname = "/Table";
+export const HotWheelsPathname = "/HotWheels";
 export const Placeholder1 = "/Placeholder1";
 export const Placeholder2 = "/Placeholder2";
 export const Placeholder3 = "/Placeholder3";
@@ -38,6 +40,7 @@ const PathnameToPage = new Map<string, Page>([
   ],
   [ModalPathname, { title: "A Simple Modal", page: <ModalPage /> }],
   [TablePathname, { title: "A Table", page: <TablePage /> }],
+  [HotWheelsPathname, { title: "Hot Wheels", page: <HotWheels /> }],
   [Placeholder1, { title: "Placeholder 1", page: <Placeholder /> }],
   [Placeholder2, { title: "Placeholder 2", page: <Placeholder /> }],
   [Placeholder3, { title: "Placeholder 3", page: <Placeholder /> }],

@@ -5,6 +5,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// - Import Redux Toolkit and store
+import { Provider } from "react-redux";
+import { store } from "./store/index";
+
 // - Import App and CSS
 import App from "./App";
 import "./index.css";
@@ -32,11 +36,13 @@ const root = ReactDOM.createRoot(element);
  *  Step 5) Show the component on the screen
  */
 root.render(
-  <NavigationProvider>
-    <StarRailProvider>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </StarRailProvider>
-  </NavigationProvider>
+  <Provider store={store}>
+    <NavigationProvider>
+      <StarRailProvider>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </StarRailProvider>
+    </NavigationProvider>
+  </Provider>
 );
