@@ -9,3 +9,86 @@ html {
 body {
   margin: 0;
 }
+
+/* 
+ * Wish List
+ */
+.wish-form {
+  margin-top: 15px;
+  padding: 15px;
+}
+.wish-form .field-group {
+  display: flex;
+  margin-bottom: 0px;
+}
+.wish-form form {
+  display: flex;
+  justify-content: space-between;
+}
+.wish-form .field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
+.wish-form .field label.label {
+  margin-bottom: 0px;
+  width: 70px;
+}
+.wish-form input {
+  width: 100%;
+}
+.wish-form h4.subtitle.is-3 {
+  margin-bottom: 0.75rem;
+}
+
+.wish-list .panel.bold {
+  font-weight: 600;
+}
+
+.wish-list .panel {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wish-list p {
+  font-size: 1.5rem;
+}
+
+.wish-list .note {
+  font-style: italic;
+  display: block;
+  margin: 40px 20px;
+}
+
+.wish-value {
+  font-size: 2rem;
+  text-align: right;
+}
+
+hr {
+  margin: 1rem 0;
+}
+
+.list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header h3.title {
+  margin-bottom: 0px;
+}
+
+.list-header .search {
+  display: flex;
+  align-items: center;
+}
+.list-header .search .label {
+  margin-bottom: 0px;
+  margin-right: 10px;
+}
