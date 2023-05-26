@@ -1,3 +1,10 @@
+## (Code in TypeScript)
+# Modern React w/ Redux (2023 Update) 
+> Udemy Paid Course
+---
+![Certificate](https://udemy-certificate.s3.amazonaws.com/image/UC-6cda875b-cf43-4d1d-bf62-3375dd84827b.jpg)
+---
+
 # Getting Started with Create React App
 
 ### **Dependencies**
